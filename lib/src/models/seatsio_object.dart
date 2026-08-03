@@ -41,6 +41,8 @@ class SeatsioObject {
   final dynamic selectableCategories;
   final bool? isInteractive;
 
+  final String? uuid;
+
   SeatsioObject(
       {this.label,
       this.labels,
@@ -76,12 +78,15 @@ class SeatsioObject {
       this.numberOfSelectedObjects,
       this.selectableCategories,
       this.isInteractive,
-      this.resaleListingId});
+      this.resaleListingId,
+      this.uuid});
 
   factory SeatsioObject.fromJson(Map<String, dynamic> json) {
     return SeatsioObject(
         label: json['label'],
-        labels: json['labels'] != null ? LabelComponents.fromJson(json['labels']) : null,
+        labels: json['labels'] != null
+            ? LabelComponents.fromJson(json['labels'])
+            : null,
         inSelectableChannel: json['inSelectableChannel'],
         objectType: json['objectType'],
         accessible: json['accessible'],
@@ -89,7 +94,8 @@ class SeatsioObject {
         liftUpArmrests: json['liftUpArmrests'],
         companionSeat: json['companionSeat'],
         semiAmbulatorySeat: json['semiAmbulatorySeat'],
-        wheelchairSpaceType: WheelchairSpaceType.fromJson(json['wheelchairSpaceType']),
+        wheelchairSpaceType:
+            WheelchairSpaceType.fromJson(json['wheelchairSpaceType']),
         category: json['category'] != null
             ? SeatsioCategory.fromJson(json['category'])
             : null,
@@ -116,7 +122,8 @@ class SeatsioObject {
         numberOfSelectedObjects: json['numberOfSelectedObjects'],
         selectableCategories: json['selectableCategories'],
         isInteractive: json['isInteractive'],
-        resaleListingId: json['resaleListingId']);
+        resaleListingId: json['resaleListingId'],
+        uuid: json['uuid']);
   }
 }
 

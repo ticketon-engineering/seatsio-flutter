@@ -1,7 +1,7 @@
 class SeatsioCategory {
   final bool? accessible;
   final String? color;
-  final int? key;
+  final String? key;
   final String? label;
   final PricingInfo? pricing;
   final bool? hasSelectableObjects;
@@ -19,9 +19,11 @@ class SeatsioCategory {
     return SeatsioCategory(
       accessible: json['accessible'] as bool?,
       color: json['color'] as String?,
-      key: json['key'] as int?,
+      key: json['key'] as String?,
       label: json['label'] as String?,
-      pricing: json['pricing'] != null ? PricingInfo.fromJson(json['pricing']) : null,
+      pricing: json['pricing'] != null
+          ? PricingInfo.fromJson(json['pricing'])
+          : null,
       hasSelectableObjects: json['hasSelectableObjects'] as bool?,
     );
   }
@@ -33,7 +35,8 @@ class SeatsioCategory {
       if (key != null) 'key': key,
       if (label != null) 'label': label,
       if (pricing != null) 'pricing': pricing!.toJson(),
-      if (hasSelectableObjects != null) 'hasSelectableObjects': hasSelectableObjects,
+      if (hasSelectableObjects != null)
+        'hasSelectableObjects': hasSelectableObjects,
     };
   }
 }
